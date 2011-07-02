@@ -1,0 +1,20 @@
+<html>
+<head>
+<script>
+
+	chrome.browserAction.onClicked.addListener(function(tab) {	
+        // We need to know if we are the active window, because the tab may
+        // have moved to another window and we don't want to execute this
+        // action multiple times.
+        
+		var URL = "http://127.0.0.1/projects/site51/?"
+			+ "c=link&f=item"
+			+ "&linkUrl=" + escape(tab.url)
+			+ "&linkTitle=" + escape(tab.title)
+			;
+		chrome.tabs.create({url: URL});
+	});
+  
+</script>
+</head>
+</html>
